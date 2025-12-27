@@ -2078,38 +2078,6 @@
             text-align: center;
         }
         
-        /* Estilos compactos */
-        body.compact-view .product-card {
-            height: auto;
-        }
-        
-        body.compact-view .product-image {
-            height: 140px;
-        }
-        
-        body.compact-view .product-title {
-            height: auto;
-            -webkit-line-clamp: 1;
-            font-size: 0.9rem;
-        }
-        
-        body.compact-view .product-description {
-            display: none;
-        }
-        
-        body.compact-view .product-features {
-            display: none;
-        }
-        
-        body.compact-view .product-status {
-            font-size: 0.7rem;
-            padding: 0.1rem 0.4rem;
-        }
-        
-        body.compact-view .products-grid {
-            gap: 1rem;
-        }
-        
         /* Preço antigo acima do preço atual */
         .price-old-above {
             display: flex;
@@ -2329,16 +2297,6 @@
                     <p id="stat-categories">0</p>
                 </div>
                 <div class="stat-card">
-                    <h5>Visitas de Clientes</h5>
-                    <p id="stat-visits">0</p>
-                    <div class="stat-detail" id="stat-visits-detail">Hoje: 0</div>
-                </div>
-                <div class="stat-card">
-                    <h5>Clientes Online</h5>
-                    <p id="stat-online">0</p>
-                    <div class="stat-detail" id="stat-online-detail">Últimos 5 min</div>
-                </div>
-                <div class="stat-card">
                     <h5>Última Atualização</h5>
                     <p id="stat-last-update">-</p>
                     <div class="stat-detail" id="stat-last-update-detail">Data: -</div>
@@ -2402,15 +2360,52 @@
                                 <span>Modo escuro</span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="toggle-label">
-                                <label class="toggle-switch">
-                                    <input type="checkbox" id="compact-view">
-                                    <span class="toggle-slider"></span>
-                                </label>
-                                <span>Visualização compacta</span>
-                            </div>
-                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Configurações de API (Firebase e ImgBB) -->
+            <div class="settings-section">
+                <h4><i class="fas fa-key"></i> Configurações de API</h4>
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Importante:</strong> Configure suas chaves de API para que o sistema funcione corretamente.
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firebase-api-key">Firebase API Key</label>
+                        <input type="text" id="firebase-api-key" class="form-control" value="AIzaSyBP1YYeAluvIJMwwlB3rtKbVUUbx1riqUc">
+                    </div>
+                    <div class="form-group">
+                        <label for="firebase-auth-domain">Firebase Auth Domain</label>
+                        <input type="text" id="firebase-auth-domain" class="form-control" value="corretora777.firebaseapp.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firebase-project-id">Firebase Project ID</label>
+                        <input type="text" id="firebase-project-id" class="form-control" value="corretora777">
+                    </div>
+                    <div class="form-group">
+                        <label for="firebase-storage-bucket">Firebase Storage Bucket</label>
+                        <input type="text" id="firebase-storage-bucket" class="form-control" value="corretora777.appspot.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firebase-messaging-sender-id">Firebase Messaging Sender ID</label>
+                        <input type="text" id="firebase-messaging-sender-id" class="form-control" value="217992558412">
+                    </div>
+                    <div class="form-group">
+                        <label for="firebase-app-id">Firebase App ID</label>
+                        <input type="text" id="firebase-app-id" class="form-control" value="1:217992558412:web:your-app-id-here">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="imgbb-api-key">ImgBB API Key</label>
+                        <input type="text" id="imgbb-api-key" class="form-control" value="f08cc6805510ac32c5ecdb6f5ed51689">
+                        <small>API Key para upload de imagens no ImgBB</small>
                     </div>
                 </div>
             </div>
@@ -2521,43 +2516,6 @@
                         <option value="monthly">Mensalmente</option>
                         <option value="never">Nunca</option>
                     </select>
-                </div>
-            </div>
-            
-            <!-- Sistema de Visitas e Clientes Online -->
-            <div class="settings-section">
-                <h4><i class="fas fa-chart-line"></i> Estatísticas de Acesso</h4>
-                <div class="form-row">
-                    <div class="form-group">
-                        <div class="toggle-label">
-                            <label class="toggle-switch">
-                                <input type="checkbox" id="track-visits" checked>
-                                <span class="toggle-slider"></span>
-                            </label>
-                            <span>Rastrear visitas de clientes</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="toggle-label">
-                            <label class="toggle-switch">
-                                <input type="checkbox" id="track-online" checked>
-                                <span class="toggle-slider"></span>
-                            </label>
-                            <span>Mostrar clientes online</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <button id="reset-visits-btn" class="btn btn-secondary">
-                            <i class="fas fa-redo"></i> Zerar Contadores
-                        </button>
-                    </div>
-                    <div class="form-group">
-                        <button id="view-visits-stats" class="btn btn-secondary">
-                            <i class="fas fa-chart-bar"></i> Ver Estatísticas
-                        </button>
-                    </div>
                 </div>
             </div>
             
@@ -2749,8 +2707,8 @@
 
     <!-- Firebase Configuration and App Logic -->
     <script>
-        // Firebase configuration - com suas credenciais
-        const firebaseConfig = {
+        // Firebase configuration - Inicialmente com valores padrão
+        let firebaseConfig = {
             apiKey: "AIzaSyBP1YYeAluvIJMwwlB3rtKbVUUbx1riqUc",
             authDomain: "corretora777.firebaseapp.com",
             projectId: "corretora777",
@@ -2759,13 +2717,18 @@
             appId: "1:217992558412:web:your-app-id-here"
         };
         
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+        // Configuração do imgBB - Inicialmente com valor padrão
+        let IMGBB_API_KEY = 'f08cc6805510ac32c5ecdb6f5ed51689';
+        
+        // Inicializar Firebase com configurações padrão
+        try {
+            firebase.initializeApp(firebaseConfig);
+        } catch (error) {
+            console.error("Erro ao inicializar Firebase:", error);
+        }
+        
         const auth = firebase.auth();
         const db = firebase.firestore();
-        
-        // Configuração do imgBB
-        const IMGBB_API_KEY = 'f08cc6805510ac32c5ecdb6f5ed51689';
         
         // DOM Elements
         const loginModal = document.getElementById('login-modal');
@@ -2834,9 +2797,11 @@
         const quickStockProductId = document.getElementById('quick-stock-product-id');
         const decreaseStockBtn = document.getElementById('decrease-stock');
         const increaseStockBtn = document.getElementById('increase-stock');
+        
         // Elementos de busca
         const searchInput = document.getElementById('search-input');
         const searchButton = document.getElementById('search-button');
+        
         // Configurações do sistema - Elementos expandidos
         const systemNameInput = document.getElementById('system-name');
         const systemSloganInput = document.getElementById('system-slogan');
@@ -2849,33 +2814,34 @@
         const saveSystemSettingsBtn = document.getElementById('save-system-settings');
         const resetSystemSettingsBtn = document.getElementById('reset-system-settings');
         
+        // Configurações de API
+        const firebaseApiKeyInput = document.getElementById('firebase-api-key');
+        const firebaseAuthDomainInput = document.getElementById('firebase-auth-domain');
+        const firebaseProjectIdInput = document.getElementById('firebase-project-id');
+        const firebaseStorageBucketInput = document.getElementById('firebase-storage-bucket');
+        const firebaseMessagingSenderIdInput = document.getElementById('firebase-messaging-sender-id');
+        const firebaseAppIdInput = document.getElementById('firebase-app-id');
+        const imgbbApiKeyInput = document.getElementById('imgbb-api-key');
+        
         // Configurações de exibição
         const showStockStatus = document.getElementById('show-stock-status');
         const showProductFeatures = document.getElementById('show-product-features');
         const showCategoriesSidebar = document.getElementById('show-categories-sidebar');
         const enableSearch = document.getElementById('enable-search');
         const displayControls = document.querySelectorAll('.display-control-btn');
+        
         // Configurações de tema
         const themeSelector = document.getElementById('theme-selector');
         const darkMode = document.getElementById('dark-mode');
-        const compactView = document.getElementById('compact-view');
+        
         // Backup e exportação
         const exportProductsBtn = document.getElementById('export-products-btn');
         const backupSystemBtn = document.getElementById('backup-system-btn');
         const backupFrequency = document.getElementById('backup-frequency');
-        // Sistema de visitas e estatísticas
-        const trackVisits = document.getElementById('track-visits');
-        const trackOnline = document.getElementById('track-online');
-        const resetVisitsBtn = document.getElementById('reset-visits-btn');
-        const viewVisitsStats = document.getElementById('view-visits-stats');
         
         // Estatísticas
         const statProducts = document.getElementById('stat-products');
         const statCategories = document.getElementById('stat-categories');
-        const statVisits = document.getElementById('stat-visits');
-        const statVisitsDetail = document.getElementById('stat-visits-detail');
-        const statOnline = document.getElementById('stat-online');
-        const statOnlineDetail = document.getElementById('stat-online-detail');
         const statLastUpdate = document.getElementById('stat-last-update');
         const statLastUpdateDetail = document.getElementById('stat-last-update-detail');
         
@@ -2913,13 +2879,9 @@
             number: "5527996316212"
         };
 
-        // Sistema de visitas e clientes online
-        let visitsData = {
-            total: 0,
-            today: 0,
-            onlineUsers: new Set(),
-            lastUpdate: null,
-            dailyVisits: {}
+        // Sistema de última atualização
+        let lastUpdateData = {
+            timestamp: null
         };
 
         // Sidebar Elements
@@ -3118,7 +3080,6 @@
             
             // Atualizar checkboxes
             darkMode.checked = document.body.classList.contains('theme-dark');
-            compactView.checked = document.body.classList.contains('compact-view');
         }
 
         // Função para carregar temas na interface
@@ -3163,7 +3124,6 @@
             const themeData = {
                 theme: currentTheme,
                 darkMode: darkMode.checked,
-                compactView: compactView.checked,
                 updatedAt: firebase.firestore.FieldValue.serverTimestamp()
             };
             
@@ -3192,16 +3152,10 @@
                             document.body.classList.add('theme-dark');
                         }
                         
-                        // Aplicar visualização compacta
-                        if (themeData.compactView) {
-                            document.body.classList.add('compact-view');
-                        }
-                        
                         // Atualizar controles
                         if (auth.currentUser) {
                             updateThemeControls(currentTheme);
                             darkMode.checked = themeData.darkMode || false;
-                            compactView.checked = themeData.compactView || false;
                         }
                     } else {
                         // Usar tema padrão
@@ -3213,19 +3167,6 @@
                     loadSavedTheme();
                 });
         }
-
-        // Aplicar visualização compacta
-        compactView.addEventListener('change', () => {
-            if (compactView.checked) {
-                document.body.classList.add('compact-view');
-            } else {
-                document.body.classList.remove('compact-view');
-            }
-            
-            if (auth.currentUser) {
-                saveThemeToFirestore();
-            }
-        });
 
         // Aplicar modo escuro
         darkMode.addEventListener('change', () => {
@@ -3239,96 +3180,6 @@
                 saveThemeToFirestore();
             }
         });
-
-        // Sistema de visitas e clientes online
-        function initializeVisitsSystem() {
-            // Gerar um ID único para este visitante
-            let visitorId = localStorage.getItem('guaraestoque_visitor_id');
-            if (!visitorId) {
-                visitorId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                localStorage.setItem('guaraestoque_visitor_id', visitorId);
-            }
-            
-            // Registrar visita
-            registerVisit(visitorId);
-            
-            // Atualizar estatísticas periodicamente
-            setInterval(updateOnlineUsers, 30000); // A cada 30 segundos
-            setInterval(updateSystemStats, 60000); // A cada 1 minuto
-        }
-
-        function registerVisit(visitorId) {
-            if (!trackVisits.checked) return;
-            
-            const now = new Date();
-            const today = now.toISOString().split('T')[0];
-            
-            // Adicionar ao conjunto de usuários online
-            visitsData.onlineUsers.add(visitorId);
-            
-            // Registrar visita diária
-            if (!visitsData.dailyVisits[today]) {
-                visitsData.dailyVisits[today] = 0;
-            }
-            visitsData.dailyVisits[today]++;
-            
-            // Atualizar contadores
-            visitsData.total++;
-            visitsData.today = visitsData.dailyVisits[today];
-            
-            // Salvar no localStorage
-            saveVisitsToLocalStorage();
-            
-            // Atualizar estatísticas na interface
-            updateSystemStats();
-        }
-
-        function updateOnlineUsers() {
-            const now = Date.now();
-            const fiveMinutesAgo = now - (5 * 60 * 1000);
-            
-            // Limpar usuários inativos (últimos 5 minutos)
-            visitsData.onlineUsers.forEach(user => {
-                // Implementar lógica de limpeza se necessário
-            });
-            
-            updateSystemStats();
-        }
-
-        function saveVisitsToLocalStorage() {
-            localStorage.setItem('guaraestoque_visits_data', JSON.stringify(visitsData));
-        }
-
-        function loadVisitsFromLocalStorage() {
-            const savedData = localStorage.getItem('guaraestoque_visits_data');
-            if (savedData) {
-                try {
-                    const data = JSON.parse(savedData);
-                    visitsData.total = data.total || 0;
-                    visitsData.dailyVisits = data.dailyVisits || {};
-                    visitsData.onlineUsers = new Set(data.onlineUsers || []);
-                    
-                    // Calcular visitas de hoje
-                    const today = new Date().toISOString().split('T')[0];
-                    visitsData.today = visitsData.dailyVisits[today] || 0;
-                } catch (e) {
-                    console.error('Erro ao carregar dados de visitas:', e);
-                }
-            }
-        }
-
-        function resetVisitsCounters() {
-            if (confirm('Tem certeza que deseja zerar todos os contadores de visitas? Esta ação não pode ser desfeita.')) {
-                visitsData.total = 0;
-                visitsData.today = 0;
-                visitsData.dailyVisits = {};
-                visitsData.onlineUsers.clear();
-                
-                saveVisitsToLocalStorage();
-                updateSystemStats();
-                showToast('Contadores de visitas zerados com sucesso!');
-            }
-        }
 
         // Sidebar Functions
         function openSidebar() {
@@ -3543,9 +3394,6 @@
         backupSystemBtn.addEventListener('click', () => {
             createSystemBackup();
         });
-        
-        // Sistema de visitas
-        resetVisitsBtn.addEventListener('click', resetVisitsCounters);
         
         // Função de busca
         searchButton.addEventListener('click', performSearch);
@@ -4432,6 +4280,29 @@
             galleryModal.style.display = 'flex';
         }
         
+        // Função para reinicializar o Firebase com novas configurações
+        function reinitializeFirebase(newConfig) {
+            try {
+                // Se já existe um app Firebase, deletar antes de reinicializar
+                if (firebase.apps.length > 0) {
+                    firebase.app().delete();
+                }
+                
+                // Inicializar com novas configurações
+                firebase.initializeApp(newConfig);
+                console.log("Firebase reinicializado com sucesso!");
+                
+                // Atualizar referências
+                auth = firebase.auth();
+                db = firebase.firestore();
+                
+                return true;
+            } catch (error) {
+                console.error("Erro ao reinicializar Firebase:", error);
+                return false;
+            }
+        }
+        
         // Carregar configurações do sistema
         function loadSystemSettings() {
             db.collection('settings').doc('system').get()
@@ -4455,6 +4326,15 @@
                         whatsappMessageInput.value = data.whatsappMessage || 'Olá! Vi seu produto no Guara Estoque e gostaria de mais informações.';
                         whatsappSettings.number = data.whatsappNumber || '5527996316212';
                         
+                        // Configurações de API
+                        firebaseApiKeyInput.value = data.firebaseApiKey || firebaseConfig.apiKey;
+                        firebaseAuthDomainInput.value = data.firebaseAuthDomain || firebaseConfig.authDomain;
+                        firebaseProjectIdInput.value = data.firebaseProjectId || firebaseConfig.projectId;
+                        firebaseStorageBucketInput.value = data.firebaseStorageBucket || firebaseConfig.storageBucket;
+                        firebaseMessagingSenderIdInput.value = data.firebaseMessagingSenderId || firebaseConfig.messagingSenderId;
+                        firebaseAppIdInput.value = data.firebaseAppId || firebaseConfig.appId;
+                        imgbbApiKeyInput.value = data.imgbbApiKey || IMGBB_API_KEY;
+                        
                         // Configurações de exibição
                         showStockStatus.checked = data.showStockStatus !== false;
                         showProductFeatures.checked = data.showProductFeatures !== false;
@@ -4463,19 +4343,13 @@
                         
                         // Configurações de tema já são carregadas separadamente
                         
-                        // Sistema de visitas
-                        trackVisits.checked = data.trackVisits !== false;
-                        trackOnline.checked = data.trackOnline !== false;
-                        
                         // Backup e exportação
                         backupFrequency.value = data.backupFrequency || 'weekly';
                         
                         // Última atualização
                         if (data.updatedAt) {
                             const lastUpdate = data.updatedAt.toDate ? data.updatedAt.toDate() : new Date(data.updatedAt);
-                            statLastUpdate.textContent = lastUpdate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-                            statLastUpdateDetail.textContent = `Data: ${lastUpdate.toLocaleDateString('pt-BR')}`;
-                            visitsData.lastUpdate = lastUpdate;
+                            updateLastUpdateDisplay(lastUpdate);
                         }
                         
                         // Atualizar footer
@@ -4489,6 +4363,32 @@
                 .catch(error => {
                     console.error('Erro ao carregar configurações do sistema:', error);
                 });
+        }
+        
+        // Atualizar exibição da última atualização
+        function updateLastUpdateDisplay(date) {
+            if (!date) return;
+            
+            const now = new Date();
+            const diffMs = now - date;
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            
+            let timeText = '';
+            if (diffHours < 1) {
+                timeText = 'há menos de 1 hora';
+            } else if (diffHours === 1) {
+                timeText = 'há 1 hora';
+            } else if (diffHours < 24) {
+                timeText = `há ${diffHours} horas`;
+            } else if (diffHours < 48) {
+                timeText = 'ontem';
+            } else {
+                timeText = date.toLocaleDateString('pt-BR');
+            }
+            
+            statLastUpdate.textContent = timeText;
+            statLastUpdateDetail.textContent = `Data: ${date.toLocaleDateString('pt-BR')} às ${date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+            lastUpdateData.timestamp = date;
         }
         
         // Salvar configurações do sistema
@@ -4508,16 +4408,21 @@
                 whatsappNumber: whatsappNumber.value,
                 whatsappMessage: whatsappMessageInput.value,
                 
+                // Configurações de API
+                firebaseApiKey: firebaseApiKeyInput.value,
+                firebaseAuthDomain: firebaseAuthDomainInput.value,
+                firebaseProjectId: firebaseProjectIdInput.value,
+                firebaseStorageBucket: firebaseStorageBucketInput.value,
+                firebaseMessagingSenderId: firebaseMessagingSenderIdInput.value,
+                firebaseAppId: firebaseAppIdInput.value,
+                imgbbApiKey: imgbbApiKeyInput.value,
+                
                 // Configurações de exibição
                 showStockStatus: showStockStatus.checked,
                 showProductFeatures: showProductFeatures.checked,
                 showCategoriesSidebar: showCategoriesSidebar.checked,
                 enableSearch: enableSearch.checked,
                 itemsPerPage: itemsPerPage,
-                
-                // Sistema de visitas
-                trackVisits: trackVisits.checked,
-                trackOnline: trackOnline.checked,
                 
                 // Configurações de tema são salvas separadamente
                 
@@ -4534,11 +4439,26 @@
                     systemSettings = settings;
                     whatsappSettings.number = settings.whatsappNumber;
                     
+                    // Atualizar configurações do Firebase e ImgBB globalmente
+                    const newFirebaseConfig = {
+                        apiKey: settings.firebaseApiKey,
+                        authDomain: settings.firebaseAuthDomain,
+                        projectId: settings.firebaseProjectId,
+                        storageBucket: settings.firebaseStorageBucket,
+                        messagingSenderId: settings.firebaseMessagingSenderId,
+                        appId: settings.firebaseAppId
+                    };
+                    
+                    // Atualizar variáveis globais
+                    firebaseConfig = newFirebaseConfig;
+                    IMGBB_API_KEY = settings.imgbbApiKey;
+                    
+                    // Tentar reinicializar o Firebase
+                    const reinitialized = reinitializeFirebase(newFirebaseConfig);
+                    
                     // Atualizar última atualização
                     const now = new Date();
-                    statLastUpdate.textContent = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-                    statLastUpdateDetail.textContent = `Data: ${now.toLocaleDateString('pt-BR')}`;
-                    visitsData.lastUpdate = now;
+                    updateLastUpdateDisplay(now);
                     
                     // Atualizar footer
                     updateFooter();
@@ -4547,7 +4467,11 @@
                     document.querySelector('.logo span').textContent = settings.name;
                     document.title = settings.name + ' - Controle de Inventário';
                     
-                    showToast('Configurações do sistema salvas com sucesso!');
+                    if (reinitialized) {
+                        showToast('Configurações do sistema salvas com sucesso! Firebase reinicializado.');
+                    } else {
+                        showToast('Configurações do sistema salvas, mas houve um problema com o Firebase.');
+                    }
                 })
                 .catch(error => {
                     console.error('Erro ao salvar configurações:', error);
@@ -4558,50 +4482,56 @@
         
         // Restaurar configurações padrão
         function resetSystemSettings() {
-            // Configurações gerais
-            systemNameInput.value = 'Guara Estoque';
-            systemSloganInput.value = 'A melhor opção de Guarapari';
-            systemDescriptionInput.value = 'Sistema completo de controle de inventário e gestão de produtos para sua empresa.';
-            systemCurrencyInput.value = 'R$';
-            systemTimezoneInput.value = 'America/Sao_Paulo';
-            
-            // Configurações de contato
-            contactEmailInput.value = 'contato@guaraestoque.com';
-            contactPhoneInput.value = '(27) 99631-6212';
-            contactAddressInput.value = 'Av. Comercial, 1234, Centro, Guarapari-ES';
-            whatsappNumber.value = '5527996316212';
-            whatsappMessageInput.value = 'Olá! Vi seu produto no Guara Estoque e gostaria de mais informações.';
-            
-            // Configurações de exibição
-            showStockStatus.checked = true;
-            showProductFeatures.checked = true;
-            showCategoriesSidebar.checked = true;
-            enableSearch.checked = true;
-            
-            // Sistema de visitas
-            trackVisits.checked = true;
-            trackOnline.checked = true;
-            
-            // Configurações de tema - restaurar para padrão
-            applyTheme('light');
-            loadThemesInterface();
-            updateThemeControls('light');
-            darkMode.checked = false;
-            compactView.checked = false;
-            
-            // Backup e exportação
-            backupFrequency.value = 'weekly';
-            
-            // Atualizar display controls
-            displayControls.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-items') === '12') {
-                    btn.classList.add('active');
-                    itemsPerPage = 12;
-                }
-            });
-            
-            showToast('Configurações restauradas para os valores padrão.');
+            if (confirm('Tem certeza que deseja restaurar todas as configurações para os valores padrão? Esta ação não pode ser desfeita.')) {
+                // Configurações gerais
+                systemNameInput.value = 'Guara Estoque';
+                systemSloganInput.value = 'A melhor opção de Guarapari';
+                systemDescriptionInput.value = 'Sistema completo de controle de inventário e gestão de produtos para sua empresa.';
+                systemCurrencyInput.value = 'R$';
+                systemTimezoneInput.value = 'America/Sao_Paulo';
+                
+                // Configurações de contato
+                contactEmailInput.value = 'contato@guaraestoque.com';
+                contactPhoneInput.value = '(27) 99631-6212';
+                contactAddressInput.value = 'Av. Comercial, 1234, Centro, Guarapari-ES';
+                whatsappNumber.value = '5527996316212';
+                whatsappMessageInput.value = 'Olá! Vi seu produto no Guara Estoque e gostaria de mais informações.';
+                
+                // Configurações de API
+                firebaseApiKeyInput.value = 'AIzaSyBP1YYeAluvIJMwwlB3rtKbVUUbx1riqUc';
+                firebaseAuthDomainInput.value = 'corretora777.firebaseapp.com';
+                firebaseProjectIdInput.value = 'corretora777';
+                firebaseStorageBucketInput.value = 'corretora777.appspot.com';
+                firebaseMessagingSenderIdInput.value = '217992558412';
+                firebaseAppIdInput.value = '1:217992558412:web:your-app-id-here';
+                imgbbApiKeyInput.value = 'f08cc6805510ac32c5ecdb6f5ed51689';
+                
+                // Configurações de exibição
+                showStockStatus.checked = true;
+                showProductFeatures.checked = true;
+                showCategoriesSidebar.checked = true;
+                enableSearch.checked = true;
+                
+                // Configurações de tema - restaurar para padrão
+                applyTheme('light');
+                loadThemesInterface();
+                updateThemeControls('light');
+                darkMode.checked = false;
+                
+                // Backup e exportação
+                backupFrequency.value = 'weekly';
+                
+                // Atualizar display controls
+                displayControls.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-items') === '12') {
+                        btn.classList.add('active');
+                        itemsPerPage = 12;
+                    }
+                });
+                
+                showToast('Configurações restauradas para os valores padrão.');
+            }
         }
         
         // Atualizar estatísticas do sistema
@@ -4609,18 +4539,9 @@
             statProducts.textContent = allProducts.length;
             statCategories.textContent = allCategories.length;
             
-            // Visitas de clientes
-            statVisits.textContent = visitsData.total;
-            statVisitsDetail.textContent = `Hoje: ${visitsData.today}`;
-            
-            // Clientes online (últimos 5 minutos)
-            const onlineCount = trackOnline.checked ? visitsData.onlineUsers.size : 0;
-            statOnline.textContent = onlineCount;
-            
             // Atualizar última atualização se já foi salva
-            if (visitsData.lastUpdate) {
-                statLastUpdate.textContent = visitsData.lastUpdate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-                statLastUpdateDetail.textContent = `Data: ${visitsData.lastUpdate.toLocaleDateString('pt-BR')}`;
+            if (lastUpdateData.timestamp) {
+                updateLastUpdateDisplay(lastUpdateData.timestamp);
             }
         }
         
@@ -4669,10 +4590,8 @@
                 settings: systemSettings,
                 theme: {
                     theme: currentTheme,
-                    darkMode: darkMode.checked,
-                    compactView: compactView.checked
+                    darkMode: darkMode.checked
                 },
-                visits: visitsData,
                 timestamp: new Date().toISOString()
             };
             
@@ -5061,8 +4980,6 @@
         checkUrlForProduct();
         loadThemeFromFirestore();
         loadThemesInterface();
-        loadVisitsFromLocalStorage();
-        initializeVisitsSystem();
 
         // Mostrar instruções de configuração no console
         console.log(`Para resolver o erro de permissões do Firebase, siga estas etapas:
